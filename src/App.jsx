@@ -1,6 +1,8 @@
 import './app.css';
 import './index.css';
 import './WeatherForecast.css';
+import WeatherIcon from './components/WeatherIcon.jsx';
+import WeatherData from './components/WeatherData.jsx';
 
 
 const App = () => {
@@ -46,12 +48,10 @@ const App = () => {
     <>
       <h1>Local Weather</h1>
       <section>
-        {weatherForecasts.map((weather) => (
-          <div className="weather">
-            <h2>Day of the Week</h2>
-            <img src={weather.img} alt={weather.imgAlt} />
-            <p><span>conditions: </span>{weather.conditions}</p>
-            <p><span>time: </span>{weather.time}</p>
+      {weatherForecasts.map((weather, index) => (
+          <div key={index} className="weather">
+            <WeatherData day={weather.day} conditions={weather.conditions} time={weather.time} />
+            <WeatherIcon img={weather.img} imgAlt={weather.imgAlt} />
           </div>
         ))}
        </section>
