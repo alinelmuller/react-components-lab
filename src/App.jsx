@@ -1,94 +1,60 @@
 import './app.css';
 import './index.css';
+import './WeatherForecast.css';
 
-import ZombieFightersList from './components/ZombieFighters/ZombieFightersList';
 
 const App = () => {
-  const team = [];
-  const money = 0;
-  
-  const zombieFighters = [
+  const weatherForecasts = [
     {
-      name: 'Survivor',
-      price: 12,
-      strength: 6,
-      agility: 4,
-      img: 'https://via.placeholder.com/150/92c952',
+      day: 'Mon',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/day.svg',
+      imgAlt: 'sun icon',
+      conditions: 'sunny',
+      time: 'Morning',
     },
     {
-      name: 'Scavenger',
-      price: 10,
-      strength: 5,
-      agility: 5,
-      img: 'https://via.placeholder.com/150/771796',
+      day: 'Tue',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/night.svg',
+      imgAlt: 'moon icon',
+      conditions: 'clear',
+      time: 'Night',
     },
     {
-      name: 'Shadow',
-      price: 18,
-      strength: 7,
-      agility: 8,
-      img: 'https://via.placeholder.com/150/24f355',
+      day: 'Wed',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/stormy.svg',
+      imgAlt: 'clouds with lightning icon',
+      conditions: 'stormy',
+      time: 'All Day',
     },
     {
-      name: 'Tracker',
-      price: 14,
-      strength: 7,
-      agility: 6,
-      img: 'https://via.placeholder.com/150/d32776',
+      day: 'Thu',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-day_t7ckxp.svg',
+      imgAlt: 'sun overcast by clouds icon',
+      conditions: 'overcast',
+      time: 'Evening',
     },
     {
-      name: 'Sharpshooter',
-      price: 20,
-      strength: 6,
-      agility: 8,
-      img: 'https://via.placeholder.com/150/1ee8a4',
-    },
-    {
-      name: 'Medic',
-      price: 15,
-      strength: 5,
-      agility: 7,
-      img: 'https://via.placeholder.com/150/66b7d2',
-    },
-    {
-      name: 'Engineer',
-      price: 16,
-      strength: 6,
-      agility: 5,
-      img: 'https://via.placeholder.com/150/56acb2',
-    },
-    {
-      name: 'Brawler',
-      price: 11,
-      strength: 8,
-      agility: 3,
-      img: 'https://via.placeholder.com/150/8985dc',
-    },
-    {
-      name: 'Infiltrator',
-      price: 17,
-      strength: 5,
-      agility: 9,
-      img: 'https://via.placeholder.com/150/392537',
-    },
-    {
-      name: 'Leader',
-      price: 22,
-      strength: 7,
-      agility: 6,
-      img: 'https://via.placeholder.com/150/602b9e',
+      day: 'Fri',
+      img: 'http://res.cloudinary.com/jkeohan/image/upload/v1535732381/cloudy-night.svg',
+      imgAlt: 'moon overcast by clouds icon',
+      conditions: 'cloudy',
+      time: 'Night',
     },
   ];
   
   return (
     <>
-      <h1>Zombie Fighter</h1>
-      <ul>
-        {zombieFighters.map((fighter) => (
-          <ZombieFightersList key={fighter.name} zombieFighter={fighter} />
+      <h1>Local Weather</h1>
+      <section>
+        {weatherForecasts.map((weather) => (
+          <div className="weather">
+            <h2>Day of the Week</h2>
+            <img src={weather.img} alt={weather.imgAlt} />
+            <p><span>conditions: </span>{weather.conditions}</p>
+            <p><span>time: </span>{weather.time}</p>
+          </div>
         ))}
-      </ul>
-    
+       </section>
     </>
   );
 }
